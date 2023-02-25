@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="success">
+          {{'LOGIN.HEADER' | translate}}
+        </ion-card-title>
+        <ion-card-subtitle>{{'LOGIN.SUBHEADER' | translate}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'LOGIN.EMAIL' | translate}}</ion-label
+          >
+          <ion-input
+            type="email"
+            [placeholder]="'LOGIN.EMAIL_PLACEHOLDER' | translate"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'LOGIN.PASSWORD' | translate}}</ion-label
+          >
+          <ion-input
+            type="password"
+            [placeholder]="'LOGIN.PASSWORD_PLACEHOLDER' | translate"
+          ></ion-input>
+        </ion-item>
+        <ion-button class="ion-text-wrap" fill="clear" color="dark" size="full"
+          >{{'LOGIN.FORGOT' | translate}}</ion-button
+        >
+        <ion-button fill="solid" color="success" expand="full"
+          >{{'LOGIN.LOGIN' | translate}}</ion-button
+        >
+        <ion-button fill="clear" color="success" expand="full" size="small"
+          >{{'LOGIN.REGISTER' | translate}}</ion-button
+        >
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

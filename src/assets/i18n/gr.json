@@ -1,0 +1,33 @@
+{
+  "APP": {
+    "TITLE": "ΠΟΔΗΛΑΤΗΣ",
+    "SUBTITLE": "Τρέξε ελεύθερος!"
+  },
+  "LOGIN": {
+    "HEADER": "Ποδηλάτης",
+    "SUBHEADER": "Σύνδεση",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Γράψε το email σου",
+    "PASSWORD": "Password",
+    "PASSWORD_PLACEHOLDER": "Γράψε το password σου",
+    "LOGIN": "Σύνδεση",
+    "REGISTER": "Εγγραφή",
+    "FORGOT": "Ξέχασες το email/password σου;"
+  },
+  "REGISTER": {
+    "HEADER": "Εγγραφή",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Επιβεβαίωση password",
+    "PHONE": "Τηλέφωνο",
+    "NAME": "Όνομα",
+    "REGISTER": "Εγγραφή",
+    "MAIN_QUESTION": "Τι τύπο ποδηλάτου οδηγείς;",
+    "CHOOSE_AMOUNT": "Μπορείς να διαλέξεις μόνο ένα",
+    "MTB": "Mountain Bike",
+    "RB": "Road Bike",
+    "FB": "Fat Bike",
+    "BMX": "BMX",
+    "CONTACT_INFO": "Πληροφορίες"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "APP": {
+    "TITLE": "CICLISTA",
+    "SUBTITLE": "Ride like the wind!"
+  },
+  "LOGIN": {
+    "HEADER": "Ciclista",
+    "SUBHEADER": "Login",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "PASSWORD": "Password",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "LOGIN": "Login",
+    "REGISTER": "Register",
+    "FORGOT": "Forgot your email or password?"
+  },
+  "REGISTER": {
+    "HEADER": "Register",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "PHONE": "Phone Number",
+    "REGISTER": "Register",
+    "NAME": "Name",
+    "MAIN_QUESTION": "What type of bike do you ride?",
+    "CHOOSE_AMOUNT": "You can only choose one",
+    "MTB": "Mountain Bike",
+    "RB": "Road Bike",
+    "FB": "Fat Bike",
+    "BMX": "BMX",
+    "CONTACT_INFO": "Contact Information"
+  }
+}
