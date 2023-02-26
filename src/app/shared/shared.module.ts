@@ -10,6 +10,6 @@ import { PickupCallCardComponent } from '../components/pickup-call-card/pickup-c
 @NgModule({
   declarations: [PickupCallCardComponent],
   imports: [CommonModule, FormsModule, IonicModule, TranslateModule],
-  exports: [PickupCallCardComponent],
+  exports: [PickupCallCardComponent, TranslateModule],
 })
 export class SharedModule {}

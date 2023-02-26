@@ -30,10 +30,18 @@
         <ion-button class="ion-text-wrap" fill="clear" color="dark" size="full"
           >{{'LOGIN.FORGOT' | translate}}</ion-button
         >
-        <ion-button fill="solid" color="success" expand="full"
+        <ion-button
+          (click)="onLogin()"
+          fill="solid"
+          color="success"
+          expand="block"
           >{{'LOGIN.LOGIN' | translate}}</ion-button
         >
-        <ion-button fill="clear" color="success" expand="full" size="small"
+        <ion-button
+          (click)="onRegister()"
+          fill="clear"
+          color="success"
+          expand="full"
           >{{'LOGIN.REGISTER' | translate}}</ion-button
         >
       </ion-card-content>

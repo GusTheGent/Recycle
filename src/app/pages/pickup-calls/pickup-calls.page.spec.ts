@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { PickupCallsPage } from './pickup-calls.page';
 
@@ -9,8 +11,12 @@ describe('PickupCallsPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PickupCallsPage ],
-      imports: [IonicModule.forRoot()]
+      declarations: [PickupCallsPage],
+      imports: [
+        IonicModule.forRoot(),
+        TranslateModule.forRoot(),
+        AppRoutingModule,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PickupCallsPage);

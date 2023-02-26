@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -16,7 +15,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    TranslateModule,
     HomePageRoutingModule,
     SharedModule,
   ],

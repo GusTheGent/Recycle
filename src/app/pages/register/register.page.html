@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
     <ion-title>{{'REGISTER.HEADER' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -111,7 +114,7 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <ion-button fill="solid" color="light" expand="block"
+  <ion-button (click)="onRegister()" fill="solid" color="light" expand="block"
     >{{'REGISTER.REGISTER' | translate}}</ion-button
   >
 </ion-content>

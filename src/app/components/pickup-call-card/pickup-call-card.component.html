@@ -42,7 +42,13 @@
         <ion-text color="success">${{ earnings }}</ion-text>
       </ion-label>
     </ion-item>
-    <ion-button *ngIf="showButton" color="success" expand="block" fill="clear">
+    <ion-button
+      *ngIf="showButton"
+      (click)="onSeeAll()"
+      color="success"
+      expand="block"
+      fill="clear"
+    >
       {{ "PICKUP_CALL_CARD.SEE_ALL" | translate }}
     </ion-button>
   </ion-card-content>

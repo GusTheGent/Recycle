@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'pickup-call-card',
@@ -13,7 +13,12 @@ export class PickupCallCardComponent implements OnInit {
   @Input() updatedOn!: string;
   @Input() notes!: string;
   @Input() earnings!: number;
+  @Output() clickEvent: EventEmitter<boolean> = new EventEmitter();
   constructor() {}
 
   ngOnInit() {}
+
+  onSeeAll() {
+    this.clickEvent.emit();
+  }
 }

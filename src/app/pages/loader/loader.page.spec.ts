@@ -9,8 +9,8 @@ describe('LoaderPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoaderPage ],
-      imports: [IonicModule.forRoot()]
+      declarations: [LoaderPage],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoaderPage);
