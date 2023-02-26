@@ -6,28 +6,69 @@
   "LOGIN": {
     "HEADER": "Ποδηλάτης",
     "SUBHEADER": "Σύνδεση",
-    "EMAIL": "Email",
-    "EMAIL_PLACEHOLDER": "Γράψε το email σου",
-    "PASSWORD": "Password",
-    "PASSWORD_PLACEHOLDER": "Γράψε το password σου",
+    "EMAIL": "Ηλεκτρονική διεύθυνση",
+    "EMAIL_PLACEHOLDER": "Γράψε την ηλεκτρονική σου διεύθυνση",
+    "PASSWORD": "Μυστικός κωδικός",
+    "PASSWORD_PLACEHOLDER": "Γράψε τον μυστικό κωδικό σου",
     "LOGIN": "Σύνδεση",
     "REGISTER": "Εγγραφή",
-    "FORGOT": "Ξέχασες το email/password σου;"
+    "FORGOT": "Ξέχασες το email/κωδικό σου;"
   },
   "REGISTER": {
     "HEADER": "Εγγραφή",
-    "EMAIL": "Email",
-    "PASSWORD": "Password",
-    "CONFIRM_PASSWORD": "Επιβεβαίωση password",
-    "PHONE": "Τηλέφωνο",
+    "EMAIL": "Ηλεκτρονική διεύθυνση",
+    "PASSWORD": "Μυστικός κωδικός",
+    "CONFIRM_PASSWORD": "Επιβεβαίωση μυστικού κωδικού",
+    "PHONE": "Τηλέφωνο Επικοινωνίας",
     "NAME": "Όνομα",
     "REGISTER": "Εγγραφή",
-    "MAIN_QUESTION": "Τι τύπο ποδηλάτου οδηγείς;",
-    "CHOOSE_AMOUNT": "Μπορείς να διαλέξεις μόνο ένα",
-    "MTB": "Mountain Bike",
-    "RB": "Road Bike",
-    "FB": "Fat Bike",
-    "BMX": "BMX",
-    "CONTACT_INFO": "Πληροφορίες"
+    "MAIN_QUESTION": "Τι θέλεις να κάνεις με τα ανακυκλώσιμα απόβλητα;",
+    "BUY": "Θέλω να τα ΑΓΟΡΑΣΩ!",
+    "SELL": "Θέλω να τα ΠΟΥΛΗΣΩ!",
+    "CONTACT_INFO": "Πληροφορίες Επαφής",
+    "ADDRESS_INFO": "Πληροφορίες Διεύθυνσης",
+    "ADDRESS": "Διεύθυνση",
+    "ADDRESS_NUMBER": "Αριθμός Διεύθυνσης",
+    "AREA": "Περιοχή",
+    "COMPLEMENT": "Complement",
+    "ZIP_CODE": "Ταχυδρομικός Κώδικας",
+    "CITY": "Πόλη",
+    "STATE": "Περιφέρεια"
+  },
+  "HOME": {
+    "HEADER": "Reciclica",
+    "PROFIT": "Κέρδος:"
+  },
+  "PICKUP_CALL_CARD": {
+    "LAST_PICKUP_CALL": "Τελευταία Κλήση",
+    "STATUS": "Κατάσταση:",
+    "CREATED_ON": "Δημιουργήθηκε:",
+    "UPDATED_ON": "Ενημερώθηκε:",
+    "SEE_ALL": "Όλες οι κλήσεις",
+    "EARNED": "Κέρδος:"
+  },
+  "PICKUP": {
+    "HEADER": "Κλήση",
+    "ADDRESS": "Διεύθυνση:",
+    "AREA": "Περιοχή",
+    "COMPLEMENT": "Complement:",
+    "ZIP_CODE": "Ταχυδρομικός Κώδικας:",
+    "CITY": "Πόλη:",
+    "STATE": "Περιφέρεια:",
+    "NOTES": "Σχόλια",
+    "CREATE": "Δημιουργία Κλήσης"
+  },
+  "PICKUPS": {
+    "HEADER": "Οι Κλήσεις μου",
+    "STATUS": "Κατάσταση:",
+    "CREATED_ON": "Δημιουργήθηκε:",
+    "ADDRESS": "Διεύθυνση:",
+    "AREA": "Περιοχή",
+    "COMPLEMENT": "Complement:",
+    "ZIP_CODE": "Ταχυδρομικός Κώδικας:",
+    "CITY": "Πόλη:",
+    "STATE": "Περιφέρεια:",
+    "NOTES": "Σχόλια",
+    "CREATE": "Δημιουργία Κλήσης"
   }
 }

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'PICKUPS.HEADER' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <pickup-call-card
+    [showHeader]="false"
+    [showButton]="false"
+    [status]="'Proccessing'"
+    [createdOn]="'06/03/2022 14:45'"
+    [updatedOn]="'06/05/2022 20:34'"
+  ></pickup-call-card>
+  <pickup-call-card
+    [showHeader]="false"
+    [showButton]="false"
+    [status]="'On Hold'"
+    [createdOn]="'12/23/2021 10:46'"
+    [updatedOn]="'12/28/2021 08:06'"
+    [notes]="'basldkjaskalskdjlaskdalskhjdgashgdkajshdgaksjhdgaksjdhgaksdjhagsdkjahsdfgkajsdfkajsydfakusydfkausyfdkuasdfkausdyf'"
+  ></pickup-call-card>
+  <pickup-call-card
+    [showHeader]="false"
+    [showButton]="false"
+    [status]="'Finished'"
+    [createdOn]="'12/23/2021 10:46'"
+    [updatedOn]="'12/28/2021 08:06'"
+    [notes]="'basldkjaskalskdjlaskdalskhjdgashgdkajshdgaksjhdgaksjdhgaksdjhagsdkjahsdfgkajsdfkajsydfakusydfkausyfdkuasdfkausdyf'"
+    [earnings]="25"
+  ></pickup-call-card>
+</ion-content>

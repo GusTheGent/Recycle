@@ -1,0 +1,49 @@
+<ion-card>
+  <ion-card-header *ngIf="showHeader">
+    <ion-card-subtitle>{{
+      "PICKUP_CALL_CARD.LAST_PICKUP_CALL" | translate
+    }}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item lines="none" [ngSwitch]="status">
+      <ion-icon
+        *ngSwitchCase="'On Hold'"
+        name="hourglass-outline"
+        slot="start"
+        color="warning"
+      ></ion-icon>
+      <ion-icon
+        *ngSwitchCase="'Proccessing'"
+        name="archive-outline"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-icon
+        *ngSwitchCase="'Finished'"
+        slot="start"
+        color="success"
+        name="checkmark-circle"
+      ></ion-icon>
+      <ion-label>
+        {{ "PICKUP_CALL_CARD.STATUS" | translate }} {{ status }}
+        <p>{{ "PICKUP_CALL_CARD.UPDATED_ON" | translate }} {{ updatedOn }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none" *ngIf="notes">
+      <ion-label>
+        <p>{{ "PICKUP_CALL_CARD.CREATED_ON" | translate }} {{ createdOn }}</p>
+        <p>Notes: {{ notes }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none" *ngIf="status === 'Finished'">
+      <ion-icon name="trophy" slot="start" color="success"></ion-icon>
+      <ion-label
+        >{{ "PICKUP_CALL_CARD.EARNED" | translate }}
+        <ion-text color="success">${{ earnings }}</ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-button *ngIf="showButton" color="success" expand="block" fill="clear">
+      {{ "PICKUP_CALL_CARD.SEE_ALL" | translate }}
+    </ion-button>
+  </ion-card-content>
+</ion-card>

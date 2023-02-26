@@ -22,12 +22,53 @@
     "PHONE": "Phone Number",
     "REGISTER": "Register",
     "NAME": "Name",
-    "MAIN_QUESTION": "What type of bike do you ride?",
-    "CHOOSE_AMOUNT": "You can only choose one",
-    "MTB": "Mountain Bike",
-    "RB": "Road Bike",
-    "FB": "Fat Bike",
-    "BMX": "BMX",
-    "CONTACT_INFO": "Contact Information"
+    "MAIN_QUESTION": "What do you want to do with the recyclable waste?",
+    "BUY": "I want to BUY it!",
+    "SELL": "I want to SELL it!",
+    "CONTACT_INFO": "Contact Information",
+    "ADDRESS_INFO": "Address Information",
+    "ADDRESS": "Address",
+    "ADDRESS_NUMBER": "Address Number",
+    "AREA": "Area",
+    "COMPLEMENT": "Complement",
+    "ZIP_CODE": "ZIP Code",
+    "CITY": "City",
+    "STATE": "State"
+  },
+  "HOME": {
+    "HEADER": "Reciclica",
+    "PROFIT": "Profit:"
+  },
+  "PICKUP_CALL_CARD": {
+    "LAST_PICKUP_CALL": "Last pickup call",
+    "STATUS": "Status:",
+    "CREATED_ON": "Created on:",
+    "UPDATED_ON": "Updated on:",
+    "SEE_ALL": "See all",
+    "EARNED": "Earnings:"
+  },
+  "PICKUP": {
+    "HEADER": "Pickup Call",
+    "ADDRESS": "Address:",
+    "AREA": "Area:",
+    "COMPLEMENT": "Complement:",
+    "ZIP_CODE": "ZIP Code:",
+    "CITY": "City:",
+    "STATE": "State:",
+    "NOTES": "Notes",
+    "CREATE": "Create pickup call"
+  },
+  "PICKUPS": {
+    "HEADER": "My Pickup Calls",
+    "STATUS": "Status:",
+    "CREATED_ON": "Created on:",
+    "ADDRESS": "Address:",
+    "AREA": "Area:",
+    "COMPLEMENT": "Complement:",
+    "ZIP_CODE": "ZIP Code:",
+    "CITY": "City:",
+    "STATE": "State:",
+    "NOTES": "Notes",
+    "CREATE": "Create pickup call"
   }
 }

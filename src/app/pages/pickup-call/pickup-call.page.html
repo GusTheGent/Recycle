@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'PICKUP.HEADER' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaIx9SeDfR-iQVBq_dCL4zSEfxWGT-_P1l-A&usqp=CAU"
+    alt=""
+  />
+  <ion-card>
+    <ion-card-content>
+      <p>{{'PICKUP.ADDRESS' | translate}} Street name, 111</p>
+      <p>{{'PICKUP.COMPLEMENT' | translate}} -</p>
+      <p>{{'PICKUP.AREA' | translate}} Kolonos</p>
+      <p>{{'PICKUP.ZIP_CODE' | translate}} 10443</p>
+      <p>{{'PICKUP.CITY' | translate}} Athens</p>
+      <p>{{'PICKUP.STATE' | translate}} Attiki</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item lines="inset">
+      <ion-label position="floating">{{'PICKUP.NOTES' | translate}}</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button color="success" expand="block"
+    >{{'PICKUP.CREATE' | translate}}</ion-button
+  >
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{'HOME.HEADER' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list color="success">
+    <ion-item color="success">
+      <ion-avatar slot="start">
+        <img
+          src="https://www.news247.gr/img/2655/6224015/262000/w460mobile/460/avatar.jpg"
+          alt=""
+        />
+      </ion-avatar>
+      <ion-label>
+        <h1>Username</h1>
+        <p>{{'HOME.PROFIT' | translate}}<span class="money">420$</span></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <pickup-call-card></pickup-call-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
