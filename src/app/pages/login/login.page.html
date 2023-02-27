@@ -22,13 +22,16 @@
               [placeholder]="'LOGIN.EMAIL_PLACEHOLDER' | translate"
             ></ion-input>
           </ion-item>
-          <ion-label
-            *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['email']"
-            color="danger"
-            class="ion-text-center"
-          >
-            {{'LOGIN.ERRORS.EMAIL' | translate}}</ion-label
-          >
+          <app-error-message
+            [field]="$any(form).get('email')"
+            [error]="'email'"
+            [message]="'LOGIN.ERRORS.EMAIL' | translate"
+          ></app-error-message>
+          <app-error-message
+            [field]="$any(form).get('email')"
+            [error]="'required'"
+            [message]="'LOGIN.ERRORS.EMAIL_EMPTY' | translate"
+          ></app-error-message>
           <ion-item>
             <ion-label position="floating"
               >{{'LOGIN.PASSWORD' | translate}}</ion-label
@@ -39,13 +42,11 @@
               [placeholder]="'LOGIN.PASSWORD_PLACEHOLDER' | translate"
             ></ion-input>
           </ion-item>
-          <ion-label
-            *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
-            color="danger"
-            class="ion-text-center"
-          >
-            {{'LOGIN.ERRORS.PASSWORD' | translate}}</ion-label
-          >
+          <app-error-message
+            [field]="$any(form).get('password')"
+            [error]="'required'"
+            [message]="'LOGIN.ERRORS.PASSWORD' | translate"
+          ></app-error-message>
           <!-- <password-strength-meter
             *ngIf="password"
             [password]="password"

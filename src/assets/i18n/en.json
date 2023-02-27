@@ -15,6 +15,7 @@
     "FORGOT": "Forgot your email or password?",
     "ERRORS": {
       "EMAIL": "The email must be valid!",
+      "EMAIL_EMPTY": "The email shouldn't be empty.",
       "PASSWORD": "Password shouldn't be empty."
     }
   },
