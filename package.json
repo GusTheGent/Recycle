@@ -26,6 +26,8 @@
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/status-bar": "4.1.1",
     "@ionic/angular": "^6.1.9",
+    "@ngrx/store": "^15.3.0",
+    "@ngrx/store-devtools": "^15.3.0",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@zxcvbn-ts/core": "^2.2.1",

@@ -7,8 +7,13 @@ import { IonicModule } from '@ionic/angular';
 //COMPONENTS
 import { PickupCallCardComponent } from '../components/pickup-call-card/pickup-call-card.component';
 import { ErrorMessageComponent } from '../components/error-message/error-message.component';
+import { LoadingComponent } from '../components/loading/loading.component';
 
-const components = [PickupCallCardComponent, ErrorMessageComponent];
+const components = [
+  PickupCallCardComponent,
+  ErrorMessageComponent,
+  LoadingComponent,
+];
 
 @NgModule({
   declarations: [components],

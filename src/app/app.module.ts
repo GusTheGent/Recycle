@@ -6,9 +6,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AppStoreModule } from 'src/store/AppStoreModule';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +29,9 @@ import { AppRoutingModule } from './app-routing.module';
         deps: [HttpClient],
       },
     }),
+    ...AppStoreModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
+    SharedModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
