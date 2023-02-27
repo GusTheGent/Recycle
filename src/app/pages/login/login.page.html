@@ -1,50 +1,80 @@
 <ion-content>
   <div class="flex-center">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title color="success">
-          {{'LOGIN.HEADER' | translate}}
-        </ion-card-title>
-        <ion-card-subtitle>{{'LOGIN.SUBHEADER' | translate}}</ion-card-subtitle>
-      </ion-card-header>
+    <form [formGroup]="form">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title color="success">
+            {{'LOGIN.HEADER' | translate}}
+          </ion-card-title>
+          <ion-card-subtitle
+            >{{'LOGIN.SUBHEADER' | translate}}</ion-card-subtitle
+          >
+        </ion-card-header>
 
-      <ion-card-content>
-        <ion-item>
-          <ion-label position="floating"
-            >{{'LOGIN.EMAIL' | translate}}</ion-label
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating"
+              >{{'LOGIN.EMAIL' | translate}}</ion-label
+            >
+            <ion-input
+              type="email"
+              formControlName="email"
+              [placeholder]="'LOGIN.EMAIL_PLACEHOLDER' | translate"
+            ></ion-input>
+          </ion-item>
+          <ion-label
+            *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['email']"
+            color="danger"
+            class="ion-text-center"
           >
-          <ion-input
-            type="email"
-            [placeholder]="'LOGIN.EMAIL_PLACEHOLDER' | translate"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating"
-            >{{'LOGIN.PASSWORD' | translate}}</ion-label
+            {{'LOGIN.ERRORS.EMAIL' | translate}}</ion-label
           >
-          <ion-input
-            type="password"
-            [placeholder]="'LOGIN.PASSWORD_PLACEHOLDER' | translate"
-          ></ion-input>
-        </ion-item>
-        <ion-button class="ion-text-wrap" fill="clear" color="dark" size="full"
-          >{{'LOGIN.FORGOT' | translate}}</ion-button
-        >
-        <ion-button
-          (click)="onLogin()"
-          fill="solid"
-          color="success"
-          expand="block"
-          >{{'LOGIN.LOGIN' | translate}}</ion-button
-        >
-        <ion-button
-          (click)="onRegister()"
-          fill="clear"
-          color="success"
-          expand="full"
-          >{{'LOGIN.REGISTER' | translate}}</ion-button
-        >
-      </ion-card-content>
-    </ion-card>
+          <ion-item>
+            <ion-label position="floating"
+              >{{'LOGIN.PASSWORD' | translate}}</ion-label
+            >
+            <ion-input
+              type="password"
+              formControlName="password"
+              [placeholder]="'LOGIN.PASSWORD_PLACEHOLDER' | translate"
+            ></ion-input>
+          </ion-item>
+          <ion-label
+            *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
+            color="danger"
+            class="ion-text-center"
+          >
+            {{'LOGIN.ERRORS.PASSWORD' | translate}}</ion-label
+          >
+          <!-- <password-strength-meter
+            *ngIf="password"
+            [password]="password"
+          ></password-strength-meter> -->
+          <ion-button
+            [disabled]="form.get('email')?.invalid"
+            class="ion-text-wrap"
+            fill="clear"
+            color="dark"
+            size="full"
+            >{{'LOGIN.FORGOT' | translate}}</ion-button
+          >
+          <ion-button
+            [disabled]="form.invalid"
+            (click)="onLogin()"
+            fill="solid"
+            color="success"
+            expand="block"
+            >{{'LOGIN.LOGIN' | translate}}</ion-button
+          >
+          <ion-button
+            (click)="onRegister()"
+            fill="clear"
+            color="success"
+            expand="full"
+            >{{'LOGIN.REGISTER' | translate}}</ion-button
+          >
+        </ion-card-content>
+      </ion-card>
+    </form>
   </div>
 </ion-content>

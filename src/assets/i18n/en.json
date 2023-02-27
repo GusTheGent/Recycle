@@ -6,13 +6,17 @@
   "LOGIN": {
     "HEADER": "Ciclista",
     "SUBHEADER": "Login",
-    "EMAIL": "Email",
+    "EMAIL": "Email*",
     "EMAIL_PLACEHOLDER": "Enter your email",
-    "PASSWORD": "Password",
+    "PASSWORD": "Password*",
     "PASSWORD_PLACEHOLDER": "Enter your password",
     "LOGIN": "Login",
     "REGISTER": "Register",
-    "FORGOT": "Forgot your email or password?"
+    "FORGOT": "Forgot your email or password?",
+    "ERRORS": {
+      "EMAIL": "The email must be valid!",
+      "PASSWORD": "Password shouldn't be empty."
+    }
   },
   "REGISTER": {
     "HEADER": "Register",
