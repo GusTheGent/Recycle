@@ -3,8 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+
+/**
+ * NgRx Imports
+ */
 import { AppState } from 'src/store/AppState';
-import { hide, show } from 'src/store/loading/loading.actions';
+import * as LoadingActions from 'src/store/loading/loading.actions';
 
 @Component({
   selector: 'app-login',
@@ -41,10 +45,10 @@ export class LoginPage implements OnInit, OnDestroy {
   }
 
   onForgotEmailPassword() {
-    this.store.dispatch(show());
+    this.store.dispatch(LoadingActions.toggleLoader());
 
     setTimeout(() => {
-      this.store.dispatch(hide());
+      this.store.dispatch(LoadingActions.toggleLoader());
     }, 3000);
   }
 

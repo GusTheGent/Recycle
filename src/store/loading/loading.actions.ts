@@ -1,4 +1,3 @@
 import { createAction } from '@ngrx/store';
 
-export const show = createAction('[Loading] show');
-export const hide = createAction('[Loading] hide');
+export const toggleLoader = createAction('[Loading] Toggle');

@@ -1,3 +1,3 @@
 export interface LoadingState {
-  show: boolean;
+  showLoader: boolean;
 }
