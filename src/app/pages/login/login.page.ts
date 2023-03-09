@@ -1,14 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 /**
  * NgRx Imports
  */
 import { AppState } from 'src/store/AppState';
 import * as LoadingActions from 'src/store/loading/loading.actions';
+import * as LoginActions from 'src/store/login/login.actions';
+import { LoginState } from 'src/store/login/LoginState';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +22,14 @@ import * as LoadingActions from 'src/store/loading/loading.actions';
 export class LoginPage implements OnInit, OnDestroy {
   form!: FormGroup;
   password!: string;
-  subscription!: Subscription;
+  loginStateSub!: Subscription;
+  recoverEmailSub!: Subscription;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
+    private toastController: ToastController,
+    private authService: AuthService,
     private store: Store<AppState>
   ) {}
 
@@ -31,6 +38,14 @@ export class LoginPage implements OnInit, OnDestroy {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
+
+    this.loginStateSub = this.store
+      .select('login')
+      .subscribe((loginState: LoginState) => {
+        this.isRecoveringPassword(loginState);
+        this.hasRecoveredPassword(loginState);
+        this.hasNotRecoveredPassword(loginState);
+      });
     // MOVE THIS PART TO REGISTER PAGE
     // this.subscription = this.form.controls['password'].valueChanges.subscribe(
     //   (value) => {
@@ -44,19 +59,72 @@ export class LoginPage implements OnInit, OnDestroy {
     this.router.navigate(['home']);
   }
 
-  onForgotEmailPassword() {
-    this.store.dispatch(LoadingActions.toggleLoader());
+  private isRecoveringPassword(loginState: LoginState) {
+    if (loginState.isRecoveringPassword) {
+      this.store.dispatch(LoadingActions.show());
+      this.recoverEmailSub = this.authService
+        .recoverEmail(this.form.get('email')?.value)
+        .subscribe(
+          () => {
+            this.store.dispatch(LoginActions.recoverPasswordSuccess());
+            this.store.dispatch(LoadingActions.hide());
+          },
+          (error) => {
+            this.store.dispatch(LoginActions.recoverPasswordFailure({ error }));
+            this.store.dispatch(LoadingActions.hide());
+          }
+        );
+    }
+  }
+  private hasRecoveredPassword(loginState: LoginState) {
+    if (loginState.hasRecoveredPassword && !loginState.isRecoveringPassword) {
+      this.successNotification();
+    }
+  }
 
-    setTimeout(() => {
-      this.store.dispatch(LoadingActions.toggleLoader());
-    }, 3000);
+  private hasNotRecoveredPassword(loginState: LoginState) {
+    if (
+      loginState.error &&
+      !loginState.isRecoveringPassword &&
+      !loginState.hasRecoveredPassword
+    ) {
+      this.failureNotification(loginState.error.message);
+    }
+  }
+
+  onForgotEmailPassword() {
+    this.store.dispatch(LoginActions.recoverPassword());
   }
 
   onRegister() {
     this.router.navigate(['register']);
   }
 
+  async successNotification(message?: string) {
+    await this.toastController
+      .create({
+        header: 'Email Sent',
+        message: 'Check your email',
+        color: 'primary',
+        position: 'top',
+        duration: 3000,
+      })
+      .then((toast) => toast.present());
+  }
+  async failureNotification(message?: string) {
+    await this.toastController
+      .create({
+        header: '404 NOT FOUND',
+        message: message,
+        color: 'danger',
+        position: 'top',
+        duration: 3000,
+      })
+      .then((toast) => toast.present());
+  }
+
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.loginStateSub.unsubscribe();
+    this.recoverEmailSub.unsubscribe();
   }
 }

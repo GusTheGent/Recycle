@@ -1,30 +1,20 @@
-import {
-  createFeatureSelector,
-  createReducer,
-  createSelector,
-  on,
-} from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
+import { AppInitialState } from '../AppInitialState';
 import * as LoadingActions from './loading.actions';
 import { LoadingState } from './LoadingState';
 
-const initialState: LoadingState = {
-  showLoader: false,
-};
-
-// //BASE SELECTOR
-// const getLoaderFeatureState = createFeatureSelector<LoadingState>('loading');
-// // SELECTORS
-// export const getShowLoader = createSelector(
-//   getLoaderFeatureState,
-//   (state) => state.showLoader
-// );
+const initialState: LoadingState = AppInitialState.loading;
 
 const reducer = createReducer(
   initialState,
-  on(LoadingActions.toggleLoader, (state: LoadingState) => {
+  on(LoadingActions.show, (state: LoadingState) => {
     return {
-      ...state,
-      showLoader: !state.showLoader,
+      showLoader: true,
+    };
+  }),
+  on(LoadingActions.hide, (state: LoadingState) => {
+    return {
+      showLoader: false,
     };
   })
 );
