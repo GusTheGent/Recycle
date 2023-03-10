@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { LoginState } from './LoginState';
 import { AppInitialState } from '../AppInitialState';
 import * as LoginActions from './login.actions';
+import { User } from 'src/app/models/User';
 
 const initialState: LoginState = AppInitialState.login;
 
@@ -10,21 +11,46 @@ const reducer = createReducer(
   on(LoginActions.recoverPassword, (state: LoginState) => {
     return {
       ...state,
-      isRecoveringPassword: true,
+      isRecoveringEmailPassword: true,
     };
   }),
   on(LoginActions.recoverPasswordSuccess, (state: LoginState) => {
     return {
       ...state,
-      isRecoveringPassword: false,
-      hasRecoveredPassword: true,
+      isRecoveringEmailPassword: false,
+      hasRecoveredEmailPassword: true,
     };
   }),
   on(LoginActions.recoverPasswordFailure, (state: LoginState, action) => {
     return {
       ...state,
-      isRecoveringPassword: false,
-      hasRecoveredPassword: false,
+      isRecoveringEmailPassword: false,
+      hasRecoveredEmailPassword: false,
+      error: action.error,
+    };
+  }),
+  on(LoginActions.login, (state: LoginState) => {
+    return {
+      ...state,
+      error: null,
+      isLoggedIn: false,
+      isLoggingIn: true,
+    };
+  }),
+  on(LoginActions.loginSuccess, (state: LoginState, action) => {
+    return {
+      ...state,
+      error: null,
+      isLoggingIn: false,
+      isLoggedIn: true,
+      user: action.user,
+    };
+  }),
+  on(LoginActions.loginFailure, (state: LoginState, action) => {
+    return {
+      ...state,
+      isLoggingIn: false,
+      isLoggedIn: false,
       error: action.error,
     };
   })

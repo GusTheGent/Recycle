@@ -17,7 +17,7 @@
         />
       </ion-avatar>
       <ion-label>
-        <h1>Username</h1>
+        <h1>{{(username$ | async)?.user?.email}}</h1>
         <p>{{'HOME.PROFIT' | translate}}<span class="money">420$</span></p>
       </ion-label>
     </ion-item>

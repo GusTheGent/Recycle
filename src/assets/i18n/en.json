@@ -17,6 +17,12 @@
       "EMAIL": "The email must be valid!",
       "EMAIL_EMPTY": "The email shouldn't be empty.",
       "PASSWORD": "Password shouldn't be empty."
+    },
+    "NOTIFICATIONS": {
+      "SUCCESS_HEADER": "Recovery email sent successfully!",
+      "ERROR_HEADER": "Email not found.",
+      "SUCCESS_BODY": "Please check your email.",
+      "ERROR_BODY": "Make sure your are registered."
     }
   },
   "REGISTER": {

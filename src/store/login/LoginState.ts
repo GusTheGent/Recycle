@@ -1,7 +1,10 @@
+import { User } from 'src/app/models/User';
+
 export interface LoginState {
-  isRecoveringPassword: boolean;
-  hasRecoveredPassword: boolean;
+  isRecoveringEmailPassword: boolean;
+  hasRecoveredEmailPassword: boolean;
   isLoggingIn: boolean;
   isLoggedIn: boolean;
   error: any;
+  user: User | null;
 }

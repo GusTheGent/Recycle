@@ -32,3 +32,6 @@
   width: 100%;
   height: 100%;
 }
+ion-toast.success-toast::part(button) {
+  color: rgb(20, 233, 20);
+}

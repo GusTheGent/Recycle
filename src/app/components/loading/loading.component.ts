@@ -10,7 +10,7 @@ import { LoadingState } from 'src/store/loading/LoadingState';
   styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent implements OnInit {
-  loadingState$!: Observable<LoadingState>;
+  loadingState$: Observable<LoadingState>;
 
   constructor(private store: Store<AppState>) {}
 

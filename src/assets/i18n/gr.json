@@ -17,6 +17,12 @@
       "EMAIL": "Το email πρέπει να είναι έγκυρο!",
       "EMAIL_EMPTY": "Το email δεν πρέπει να είναι κενό..",
       "PASSWORD": "Το password δεν πρέπει να είναι κενό."
+    },
+    "NOTIFICATIONS": {
+      "SUCCESS_HEADER": "Εστάλη email ανάκτησης!",
+      "ERROR_HEADER": "Το email δεν βρέθηκε... 😞",
+      "SUCCESS_BODY": "Έλεγχξε το email σου.",
+      "ERROR_BODY": "Βεβαιώσου 'οτι είσαι εγγεγραμμένος."
     }
   },
   "REGISTER": {
