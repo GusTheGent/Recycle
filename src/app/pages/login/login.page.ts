@@ -170,8 +170,8 @@ export class LoginPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.loginStateSub.unsubscribe();
-    this.loginSub.unsubscribe();
-    this.recoverEmailSub.unsubscribe();
+    if (this.loginStateSub) this.loginStateSub.unsubscribe();
+    if (this.loginSub) this.loginSub.unsubscribe();
+    if (this.recoverEmailSub) this.recoverEmailSub.unsubscribe();
   }
 }

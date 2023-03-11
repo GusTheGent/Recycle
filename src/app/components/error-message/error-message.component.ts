@@ -9,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ErrorMessageComponent implements OnInit {
   @Input() message: string = '';
   @Input() error: string = '';
-  @Input() field!: FormGroup;
+  @Input() field: FormGroup;
 
   constructor() {}
 

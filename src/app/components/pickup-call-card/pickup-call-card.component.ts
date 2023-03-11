@@ -8,11 +8,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class PickupCallCardComponent implements OnInit {
   @Input() showHeader: boolean = true;
   @Input() showButton: boolean = true;
-  @Input() status!: string;
-  @Input() createdOn!: string;
-  @Input() updatedOn!: string;
-  @Input() notes!: string;
-  @Input() earnings!: number;
+  @Input() status: string;
+  @Input() createdOn: string;
+  @Input() updatedOn: string;
+  @Input() notes: string;
+  @Input() earnings: number;
   @Output() clickEvent: EventEmitter<boolean> = new EventEmitter();
   constructor() {}
 
