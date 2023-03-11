@@ -1,6 +1,6 @@
 export class User {
   id: string;
-  userType: string; // PARTNER | CLIENT
+  // userType: string; // PARTNER | CLIENT
   email: string;
   // contactInfo: ContactInfo;
   // addressInfo: AddressInfo;

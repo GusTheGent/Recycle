@@ -88,7 +88,7 @@ export class LoginPage implements OnInit, OnDestroy {
       this.loginSub = this.authService.login(email, password).subscribe(
         (user) => {
           this.store.dispatch(LoginActions.loginSuccess({ user }));
-          console.log(user);
+          console.log(['USER'], user);
         },
         (error) => {
           this.store.dispatch(LoginActions.loginFailure({ error }));
@@ -128,6 +128,7 @@ export class LoginPage implements OnInit, OnDestroy {
   private onHasNotRecoveredEmailPassword(loginState: LoginState) {
     if (loginState.error && !loginState.hasRecoveredEmailPassword) {
       this.failureNotification(loginState.error.message);
+      console.log('fire');
     }
   }
 
@@ -156,15 +157,15 @@ export class LoginPage implements OnInit, OnDestroy {
   async failureNotification(message?: string) {
     await this.toastController
       .create({
-        header: this.translateService.instant(
-          'LOGIN.NOTIFICATIONS.ERROR_HEADER'
-        ),
+        // header: this.translateService.instant(
+        //   'LOGIN.NOTIFICATIONS.ERROR_HEADER'
+        // ),
         message: message
           ? message
           : this.translateService.instant('LOGIN.NOTIFICATIONS.ERROR_BODY'),
         color: 'danger',
         position: 'top',
-        duration: 3000,
+        duration: 5000,
       })
       .then((toast) => toast.present());
   }

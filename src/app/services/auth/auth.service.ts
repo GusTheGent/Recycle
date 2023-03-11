@@ -1,42 +1,46 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/User';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import * as firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
+  constructor(private auth: AngularFireAuth) {}
 
   recoverEmailPassword(email: string): Observable<void> {
     return new Observable<void>((observer) => {
-      setTimeout(() => {
-        if (email == 'error@email.com') {
-          observer.error({
-            message: 'Email not found, make sure you are registered',
-          });
-        }
-        observer.next();
-        observer.complete();
-      }, 3000);
+      this.auth
+        .sendPasswordResetEmail(email)
+        .then(() => {
+          observer.next();
+          observer.complete();
+        })
+        .catch((error) => {
+          observer.error(error);
+          observer.complete();
+        });
     });
   }
 
   login(email: string, password: string): Observable<User> {
     return new Observable<User>((observer) => {
-      setTimeout(() => {
-        if (email == 'error@email.com') {
-          observer.error({
-            message: 'Email Not Found, please try again later',
-          });
-        } else {
-          const user = new User();
-          user.email = email;
-          user.id = 'userId';
-          observer.next(user);
-        }
-        observer.complete();
-      }, 3000);
+      this.auth
+        .setPersistence(firebase.default.auth.Auth.Persistence.LOCAL)
+        .then(() => {
+          this.auth
+            .signInWithEmailAndPassword(email, password)
+            .then((fireUser: firebase.default.auth.UserCredential) => {
+              observer.next({ email, id: fireUser.user?.uid as string });
+              observer.complete();
+            })
+            .catch((error) => {
+              observer.error(error);
+              observer.complete();
+            });
+        });
     });
   }
 }
