@@ -33,7 +33,10 @@ export class AuthService {
           this.auth
             .signInWithEmailAndPassword(email, password)
             .then((fireUser: firebase.default.auth.UserCredential) => {
-              observer.next({ email, id: fireUser.user?.uid as string });
+              observer.next({
+                id: fireUser.user?.uid as string,
+                email: fireUser.user?.email as string,
+              });
               observer.complete();
             })
             .catch((error) => {
