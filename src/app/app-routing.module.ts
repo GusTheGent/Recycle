@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { AuthGuard } from './guards/auth/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -27,11 +28,13 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    canLoad: [AuthGuard],
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: 'pickup-call',
+    canLoad: [AuthGuard],
     loadChildren: () =>
       import('./pages/pickup-call/pickup-call.module').then(
         (m) => m.PickupCallPageModule
@@ -39,6 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'pickup-calls',
+    canLoad: [AuthGuard],
     loadChildren: () =>
       import('./pages/pickup-calls/pickup-calls.module').then(
         (m) => m.PickupCallsPageModule
