@@ -1,10 +1,10 @@
 {
   "APP": {
-    "TITLE": "CICLISTA",
-    "SUBTITLE": "Ride like the wind!"
+    "TITLE": "Recycle",
+    "SUBTITLE": "Breath freely!"
   },
   "LOGIN": {
-    "HEADER": "Ciclista",
+    "HEADER": "Recycle!",
     "SUBHEADER": "Login",
     "EMAIL": "Email*",
     "EMAIL_PLACEHOLDER": "Enter your email",
@@ -27,27 +27,39 @@
   },
   "REGISTER": {
     "HEADER": "Register",
-    "EMAIL": "Email",
-    "PASSWORD": "Password",
+    "EMAIL": "Email*",
+    "PASSWORD": "Password*",
     "CONFIRM_PASSWORD": "Confirm Password",
-    "PHONE": "Phone Number",
+    "PHONE": "Phone Number*",
     "REGISTER": "Register",
-    "NAME": "Name",
-    "MAIN_QUESTION": "What do you want to do with the recyclable waste?",
-    "BUY": "I want to BUY it!",
-    "SELL": "I want to SELL it!",
+    "NAME": "Name*",
     "CONTACT_INFO": "Contact Information",
     "ADDRESS_INFO": "Address Information",
-    "ADDRESS": "Address",
-    "ADDRESS_NUMBER": "Address Number",
-    "AREA": "Area",
+    "ADDRESS": "Address*",
+    "ADDRESS_NUMBER": "Address Number*",
+    "AREA": "Area*",
     "COMPLEMENT": "Complement",
-    "ZIP_CODE": "ZIP Code",
-    "CITY": "City",
-    "STATE": "State"
+    "ZIP_CODE": "ZIP Code*",
+    "CITY": "City*",
+    "STATE": "State*",
+    "ERRORS": {
+      "NAME": "The name shouldn't be empty.",
+      "EMAIL": "The email must be valid!",
+      "EMAIL_EMPTY": "The email shouldn't be empty.",
+      "PASSWORD": "Password shouldn't be empty.",
+      "PASSWORD_VALIDATION": "The password must contain at least 6 characters.",
+      "PASSWORD_MISMATCH": "Password doesn't match",
+      "PHONE": "Phone Number shouldn't be empty.",
+      "ADDRESS": "Address shouldn't be empty.",
+      "ADDRESS_NUMBER": "Address Number shouldn't be empty.",
+      "AREA": "Area shouldn't be empty.",
+      "ZIP_CODE": "Zip Code shouldn't be empty.",
+      "CITY": "City shouldn't be empty.",
+      "STATE": "State shouldn't be empty."
+    }
   },
   "HOME": {
-    "HEADER": "Reciclica",
+    "HEADER": "Recycle",
     "PROFIT": "Profit:"
   },
   "PICKUP_CALL_CARD": {

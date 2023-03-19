@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { IonicModule } from '@ionic/angular';
@@ -21,7 +20,6 @@ import { LoginPage } from './login.page';
     LoginPageRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    PasswordStrengthMeterModule.forRoot(),
   ],
   declarations: [LoginPage],
 })

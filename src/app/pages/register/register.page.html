@@ -8,113 +8,178 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        {{'REGISTER.MAIN_QUESTION' | translate}}
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-radio-group value="">
+  <form [formGroup]="form">
+    <ion-card>
+      <!-- CONTACT INFO -->
+      <ion-card-header>
+        <ion-card-title>
+          {{'REGISTER.CONTACT_INFO' | translate}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
         <ion-item>
-          <ion-label>{{'REGISTER.BUY' | translate}}</ion-label>
-          <ion-radio slot="end" value="CLIENT"></ion-radio>
+          <ion-label position="floating"
+            >{{'REGISTER.NAME' | translate}}</ion-label
+          >
+          <ion-input type="text" formControlName="name"></ion-input>
         </ion-item>
-
+        <app-error-message
+          [field]="$any(form).get('name')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.NAME' | translate"
+        ></app-error-message>
         <ion-item>
-          <ion-label>{{'REGISTER.SELL' | translate}}</ion-label>
-          <ion-radio slot="end" value="PARTNER"></ion-radio>
+          <ion-label position="floating"
+            >{{'REGISTER.EMAIL' | translate}}</ion-label
+          >
+          <ion-input type="email" formControlName="email"></ion-input>
         </ion-item>
-      </ion-radio-group>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title> {{'REGISTER.CONTACT_INFO' | translate}} </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.NAME' | translate}}</ion-label
-        >
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.EMAIL' | translate}}</ion-label
-        >
-        <ion-input type="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.PASSWORD' | translate}}</ion-label
-        >
-        <ion-input type="password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.CONFIRM_PASSWORD' | translate}}</ion-label
-        >
-        <ion-input type="password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.PHONE' | translate}}</ion-label
-        >
-        <ion-input type="tel"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title> {{'REGISTER.ADDRESS_INFO' | translate}} </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.ADDRESS' | translate}}</ion-label
-        >
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.ADDRESS_NUMBER' | translate}}</ion-label
-        >
-        <ion-input type="tel"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.AREA' | translate}}</ion-label
-        >
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.COMPLEMENT' | translate}}</ion-label
-        >
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.ZIP_CODE' | translate}}</ion-label
-        >
-        <ion-input type="tel"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.CITY' | translate}}</ion-label
-        >
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"
-          >{{'REGISTER.STATE' | translate}}</ion-label
-        >
-        <ion-input type="text"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-button (click)="onRegister()" fill="solid" color="light" expand="block"
-    >{{'REGISTER.REGISTER' | translate}}</ion-button
-  >
+        <app-error-message
+          [field]="$any(form).get('email')"
+          [error]="'email'"
+          [message]="'REGISTER.ERRORS.EMAIL' | translate"
+        ></app-error-message>
+        <app-error-message
+          [field]="$any(form).get('email')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.EMAIL_EMPTY' | translate"
+        ></app-error-message>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.PASSWORD' | translate}}</ion-label
+          >
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('password')"
+          [error]="'minlength'"
+          [message]="'REGISTER.ERRORS.PASSWORD_VALIDATION' | translate"
+        ></app-error-message>
+        <app-error-message
+          [field]="$any(form).get('password')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.PASSWORD' | translate"
+        ></app-error-message>
+        <password-strength-meter
+          *ngIf="password"
+          [password]="password"
+        ></password-strength-meter>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.CONFIRM_PASSWORD' | translate}}</ion-label
+          >
+          <ion-input
+            type="password"
+            formControlName="confirmPassword"
+          ></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('confirmPassword')"
+          [error]="'noMatch'"
+          [message]="'REGISTER.ERRORS.PASSWORD_MISMATCH' | translate"
+        ></app-error-message>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.PHONE' | translate}}</ion-label
+          >
+          <ion-input type="tel" formControlName="phoneNumber"></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('phoneNumber')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.PHONE' | translate"
+        ></app-error-message>
+      </ion-card-content>
+    </ion-card>
+    <!-- ADDRESS INFO -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          {{'REGISTER.ADDRESS_INFO' | translate}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content formGroupName="addressInfo">
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.ADDRESS' | translate}}</ion-label
+          >
+          <ion-input type="text" formControlName="address"></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('addressInfo').get('address')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.ADDRESS' | translate"
+        ></app-error-message>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.ADDRESS_NUMBER' | translate}}</ion-label
+          >
+          <ion-input type="tel" formControlName="addressNumber"></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('addressInfo').get('addressNumber')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.ADDRESS_NUMBER' | translate"
+        ></app-error-message>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.AREA' | translate}}</ion-label
+          >
+          <ion-input type="text" formControlName="area"></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('addressInfo').get('area')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.AREA' | translate"
+        ></app-error-message>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.COMPLEMENT' | translate}}</ion-label
+          >
+          <ion-input type="text" formControlName="complement"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.ZIP_CODE' | translate}}</ion-label
+          >
+          <ion-input type="tel" formControlName="zipCode"></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('addressInfo').get('zipCode')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.ZIP_CODE' | translate"
+        ></app-error-message>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.CITY' | translate}}</ion-label
+          >
+          <ion-input type="text" formControlName="city"></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('addressInfo').get('city')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.CITY' | translate"
+        ></app-error-message>
+        <ion-item>
+          <ion-label position="floating"
+            >{{'REGISTER.STATE' | translate}}</ion-label
+          >
+          <ion-input type="text" formControlName="state"></ion-input>
+        </ion-item>
+        <app-error-message
+          [field]="$any(form).get('addressInfo').get('state')"
+          [error]="'required'"
+          [message]="'REGISTER.ERRORS.STATE' | translate"
+        ></app-error-message>
+      </ion-card-content>
+    </ion-card>
+    <ion-button
+      (click)="onRegister()"
+      [disabled]="form.invalid"
+      fill="solid"
+      color="light"
+      expand="block"
+      >{{'REGISTER.REGISTER' | translate}}</ion-button
+    >
+  </form>
 </ion-content>

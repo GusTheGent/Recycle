@@ -31,6 +31,8 @@ export class LoginPage implements OnInit, OnDestroy {
     private store: Store<AppState>
   ) {}
 
+  //TODO: Add an eye icon to password fields to toggle password
+
   ngOnInit() {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -45,12 +47,6 @@ export class LoginPage implements OnInit, OnDestroy {
         this.onIsLoggedIn(loginState);
         this.toggleLoading(loginState);
       });
-    // MOVE THIS PART TO REGISTER PAGE
-    // this.subscription = this.form.controls['password'].valueChanges.subscribe(
-    //   (value) => {
-    //     this.password = value;
-    //   }
-    // );
   }
 
   onLogin() {

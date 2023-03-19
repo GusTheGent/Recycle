@@ -47,12 +47,6 @@
             [error]="'required'"
             [message]="'LOGIN.ERRORS.PASSWORD' | translate"
           ></app-error-message>
-          <!-- MOVE THIS PART TO REGISTER PAGE -->
-          <!-- <password-strength-meter
-            *ngIf="password"
-            [password]="password"
-          ></password-strength-meter> -->
-          <!-- MOVE THIS PART TO REGISTER PAGE -->
           <ion-button
             [disabled]="form.get('email')?.invalid"
             (click)="onForgotEmailPassword()"
