@@ -17,6 +17,7 @@ export class RegisterPage implements OnInit, OnDestroy {
   form: FormGroup;
   subscription: Subscription;
   password: string;
+  inputType: string = 'password';
   constructor(private router: Router, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -39,12 +40,12 @@ export class RegisterPage implements OnInit, OnDestroy {
     this.subscription = this.form.controls['password'].valueChanges.subscribe(
       (value) => {
         this.password = value;
+        this.form
+          .get('confirmPassword')
+          ?.setValidators(this.confirmPassword(this.form));
+        this.form.get('confirmPassword')?.updateValueAndValidity();
       }
     );
-
-    this.form
-      .get('confirmPassword')
-      ?.setValidators(this.confirmPassword(this.form));
   }
 
   onRegister() {
@@ -52,21 +53,16 @@ export class RegisterPage implements OnInit, OnDestroy {
     this.router.navigate(['home']);
   }
 
-  //TODO: Add an eye icon to password fields to toggle password
-
-  //BUG TO BE FIXED: When the user types a password and confirm password it works, BUT if he goes back and changes the password,
-  //the confirm password validation is not activated again.
   confirmPassword(form: FormGroup): ValidatorFn {
-    const password = form.get('password');
     const confirmPassword = form.get('confirmPassword');
 
     const validator = () => {
-      return password?.value == confirmPassword?.value
-        ? null
-        : { noMatch: true };
+      return this.password == confirmPassword?.value ? null : { noMatch: true };
     };
     return validator;
   }
+
+  togglePassword() {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

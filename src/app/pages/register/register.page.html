@@ -48,7 +48,12 @@
           <ion-label position="floating"
             >{{'REGISTER.PASSWORD' | translate}}</ion-label
           >
-          <ion-input type="password" formControlName="password"></ion-input>
+          <ion-input [type]="inputType" formControlName="password"></ion-input>
+          <ion-icon
+            [name]="(inputType === 'password') ? 'eye-off' : 'eye'"
+            slot="end"
+            (click)="inputType = (inputType === 'password') ? 'text' : 'password';"
+          ></ion-icon>
         </ion-item>
         <app-error-message
           [field]="$any(form).get('password')"
@@ -69,7 +74,7 @@
             >{{'REGISTER.CONFIRM_PASSWORD' | translate}}</ion-label
           >
           <ion-input
-            type="password"
+            [type]="inputType"
             formControlName="confirmPassword"
           ></ion-input>
         </ion-item>
