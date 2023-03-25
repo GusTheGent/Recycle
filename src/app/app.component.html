@@ -6,13 +6,36 @@
           <ion-list-header>{{ "APP.TITLE" | translate }}</ion-list-header>
           <ion-note>{{ "APP.SUBTITLE" | translate }}</ion-note>
 
+          <ion-list>
+            <ion-list-header>{{
+              "SIDE_MENU.LANG_SELECTION.TITLE" | translate
+            }}</ion-list-header>
+            <ion-item>
+              <ion-select
+                interface="action-sheet"
+                [placeholder]="'SIDE_MENU.LANG_SELECTION.OPTION' | translate"
+                (ionChange)="selectLanguage($event)"
+              >
+                <ion-select-option
+                  *ngFor="let language of supportedLanguages"
+                  [value]="language"
+                  >{{
+                    "SIDE_MENU.LANG_SELECTION." + language
+                      | uppercase
+                      | translate
+                  }}</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
           <ion-menu-toggle
             auto-hide="false"
-            *ngFor="let p of appPages; let i = index"
+            *ngFor="let page of appPages; let i = index"
           >
             <ion-item
               routerDirection="root"
-              [routerLink]="[p.url]"
+              [routerLink]="[page.url]"
               lines="none"
               detail="false"
               routerLinkActive="selected"
@@ -20,10 +43,10 @@
               <ion-icon
                 aria-hidden="true"
                 slot="start"
-                [ios]="p.icon + '-outline'"
-                [md]="p.icon + '-sharp'"
+                [ios]="page.icon + '-outline'"
+                [md]="page.icon + '-sharp'"
               ></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+              <ion-label>{{ page.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

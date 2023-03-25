@@ -17,6 +17,11 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 
+export function createTranslateLoader(http: HttpClient) {
+  const now = Date.now();
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json?' + now);
+}
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -27,11 +32,10 @@ import { environment } from 'src/environments/environment';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) => {
-          return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-        },
+        useFactory: createTranslateLoader,
         deps: [HttpClient],
       },
+      defaultLanguage: 'en',
     }),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),

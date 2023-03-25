@@ -3,6 +3,18 @@
     "TITLE": "Recycle",
     "SUBTITLE": "Breath freely!"
   },
+  "SIDE_MENU": {
+    "LANG_SELECTION": {
+      "TITLE": "Language",
+      "OPTION": "Select",
+      "EN": "English",
+      "GR": "Greek"
+    },
+    "ITEMS": {
+      "MY_CALLS": "My Pickup Calls",
+      "NEW_CALL": "New Pickup Call"
+    }
+  },
   "LOGIN": {
     "HEADER": "Recycle!",
     "SUBHEADER": "Login",

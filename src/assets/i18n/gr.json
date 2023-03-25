@@ -3,6 +3,18 @@
     "TITLE": "Ανακυκλώνω",
     "SUBTITLE": "Αναπνέω ελεύθερα!"
   },
+  "SIDE_MENU": {
+    "LANG_SELECTION": {
+      "TITLE": "Γλώσσα",
+      "OPTION": "Διάλεξε",
+      "EN": "Αγγλικά",
+      "GR": "Ελληνικά"
+    },
+    "ITEMS": {
+      "MY_CALLS": "Οι Κλήσεις μου",
+      "NEW_CALL": "Νέα Κλήση"
+    }
+  },
   "LOGIN": {
     "HEADER": "Ανακυκλώνω!",
     "SUBHEADER": "Σύνδεση",

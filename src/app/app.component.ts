@@ -7,10 +7,32 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public appPages = [{ title: 'Mail', url: '', icon: 'mail' }];
+  supportedLanguages: string[] = ['en', 'gr'];
 
+  appPages: ISideMenuItem[] = [
+    {
+      title: this.translateService.instant('SIDE_MENU.ITEMS.MY_CALLS'),
+      url: 'pickup-calls',
+      icon: 'albums',
+    },
+    {
+      title: this.translateService.instant('SIDE_MENU.ITEMS.NEW_CALL'),
+      url: 'pickup-call',
+      icon: 'add-circle',
+    },
+  ];
   constructor(private translateService: TranslateService) {
-    this.translateService.setDefaultLang('en');
-    this.translateService.use('en');
+    this.translateService.addLangs(this.supportedLanguages);
+    console.table(this.appPages);
   }
+
+  selectLanguage(event: any) {
+    this.translateService.use(event.target.value);
+  }
+}
+
+interface ISideMenuItem {
+  title: string;
+  url: string;
+  icon: string;
 }

@@ -22,6 +22,10 @@ import { LoginState } from 'src/store/login/LoginState';
 export class LoginPage implements OnInit, OnDestroy {
   form: FormGroup;
   loginStateSub: Subscription;
+  inputType: string = 'password';
+
+  username: string = 'gusangelis90@gmail.com';
+  pas: string = '123456';
 
   constructor(
     private router: Router,
@@ -31,12 +35,10 @@ export class LoginPage implements OnInit, OnDestroy {
     private store: Store<AppState>
   ) {}
 
-  //TODO: Add an eye icon to password fields to toggle password
-
   ngOnInit() {
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      email: [this.username, [Validators.required, Validators.email]],
+      password: [this.pas, [Validators.required]],
     });
 
     this.loginStateSub = this.store
