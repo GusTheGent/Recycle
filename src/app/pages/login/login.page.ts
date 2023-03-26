@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
@@ -24,11 +24,9 @@ export class LoginPage implements OnInit, OnDestroy {
   loginStateSub: Subscription;
   inputType: string = 'password';
 
-  username: string = 'gusangelis90@gmail.com';
-  pas: string = '123456';
-
   constructor(
     private router: Router,
+    private navController: NavController,
     private formBuilder: FormBuilder,
     private toastController: ToastController,
     private translateService: TranslateService,
@@ -37,8 +35,8 @@ export class LoginPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      email: [this.username, [Validators.required, Validators.email]],
-      password: [this.pas, [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
 
     this.loginStateSub = this.store
@@ -80,7 +78,7 @@ export class LoginPage implements OnInit, OnDestroy {
 
   private onIsLoggedIn(loginState: LoginState) {
     if (loginState.isLoggedIn) {
-      this.router.navigate(['home']);
+      this.navController.navigateRoot(['home']);
     }
   }
 
@@ -93,7 +91,6 @@ export class LoginPage implements OnInit, OnDestroy {
   private onHasNotRecoveredEmailPassword(loginState: LoginState) {
     if (loginState.error && !loginState.hasRecoveredEmailPassword) {
       this.failureNotification(loginState.error.message);
-      console.log('fire');
     }
   }
 

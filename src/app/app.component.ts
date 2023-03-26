@@ -23,7 +23,6 @@ export class AppComponent {
   ];
   constructor(private translateService: TranslateService) {
     this.translateService.addLangs(this.supportedLanguages);
-    console.table(this.appPages);
   }
 
   selectLanguage(event: any) {

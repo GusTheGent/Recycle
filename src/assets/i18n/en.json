@@ -68,6 +68,10 @@
       "ZIP_CODE": "Zip Code shouldn't be empty.",
       "CITY": "City shouldn't be empty.",
       "STATE": "State shouldn't be empty."
+    },
+    "NOTIFICATIONS": {
+      "SUCCESS_HEADER": "Registered successfully!",
+      "ERROR_HEADER": "Email already exists."
     }
   },
   "HOME": {

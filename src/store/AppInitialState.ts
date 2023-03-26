@@ -13,4 +13,10 @@ export const AppInitialState: AppState = {
     error: null,
     user: null,
   },
+  register: {
+    isRegistered: false,
+    isRegistering: false,
+    error: null,
+    user: null,
+  },
 };

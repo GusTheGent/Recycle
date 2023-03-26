@@ -3,12 +3,25 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/models/User';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import * as firebase from 'firebase/compat/app';
+import { UserRegister } from 'src/app/models/UserRegister';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private auth: AngularFireAuth) {}
+
+  //Fake register
+  register(userRegister: UserRegister): Observable<void> {
+    return new Observable<void>((observer) => {
+      if (userRegister.email == 'error@email.com') {
+        observer.error({ message: 'Already Registered' });
+      } else {
+        observer.next();
+      }
+      observer.complete();
+    });
+  }
 
   recoverEmailPassword(email: string): Observable<void> {
     return new Observable<void>((observer) => {
